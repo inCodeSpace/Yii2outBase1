@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 <?php
 
 return [/*
@@ -9,4 +7,3 @@ return [/*
     'rules' => [        
     ],
 */];
->>>>>>> origin/master
