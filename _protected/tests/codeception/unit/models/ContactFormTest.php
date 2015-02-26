@@ -1,15 +1,18 @@
 <?php
-
 namespace tests\codeception\unit\models;
 
-use Yii;
-use yii\codeception\TestCase;
+use app\models\ContactForm;
 use Codeception\Specify;
+use yii\codeception\TestCase;
+use Yii;
 
 class ContactFormTest extends TestCase
 {
     use Specify;
 
+    /**
+     * Create the objects against which you will test.
+     */
     protected function setUp()
     {
         parent::setUp();
@@ -18,16 +21,21 @@ class ContactFormTest extends TestCase
         };
     }
 
+    /**
+     * Clean up the objects against which you tested.
+     */
     protected function tearDown()
     {
         unlink($this->getMessageFile());
         parent::tearDown();
     }
 
+    /**
+     * Test contact.
+     */
     public function testContact()
     {
-        $model = $this->getMock('app\models\ContactForm', ['validate']);
-        $model->expects($this->once())->method('validate')->will($this->returnValue(true));
+        $model = new ContactForm();
 
         $model->attributes = [
             'name' => 'Tester',
@@ -52,9 +60,14 @@ class ContactFormTest extends TestCase
         });
     }
 
+    /**
+     * Get message file that our test will create to put contact data in
+     * (we are simulating email sending in our test by writing data to file).
+     *
+     * @return string
+     */
     private function getMessageFile()
     {
         return Yii::getAlias(Yii::$app->mailer->fileTransportPath) . '/testing_message.eml';
     }
-
 }
