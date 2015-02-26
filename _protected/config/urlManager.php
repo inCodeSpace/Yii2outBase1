@@ -7,4 +7,8 @@ return [
     'rules' => [
     ],
 */
+<<<<<<< HEAD
 ];
+=======
+];
+>>>>>>> origin/master
