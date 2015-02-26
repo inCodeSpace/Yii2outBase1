@@ -41,7 +41,7 @@ $config = [
             ],
         ],
         'db' => require(__DIR__ . '/db.php'),
-        'urlManager' => require(__DIR__ . '/urlManager.php'), // 4) Включить ЧПУ
+        // 'urlManager' => require(__DIR__ . '/urlManager.php'), // 4) Включить ЧПУ
     ],
     'params' => $params,
 ];
